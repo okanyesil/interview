@@ -20,4 +20,10 @@ export class UserService {
   addNewUser(userInfo: UserModel) {
     return this.http.post(environment.apiUrl, userInfo);
   }
+  updateUserInfo(patchedUserValue:UserModel ) {
+    return this.http.put(environment.apiUrl+ "/" + patchedUserValue.id, patchedUserValue);
+  }
+  deleteUser(id: number){
+    return this.http.delete(environment.apiUrl+ "/" + id);
+  }
 }

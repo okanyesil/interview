@@ -139,10 +139,10 @@
           </mat-expansion-panel-header>
       
           <div class="d-flex justify-content-center">
-            <button mat-raised-button color="accent" (click)="openDialog('0ms', '0ms')" >Update
+            <button mat-raised-button color="accent" (click)="sendMessage(item.id)" >Update
               <mat-icon>update</mat-icon>
             </button>
-            <button mat-raised-button color="warn" class="mx-4">Delete
+            <button mat-raised-button color="warn" class="mx-4" (click)="deleteUser(item.id)" >Delete
               <mat-icon>delete</mat-icon>
             </button>
           </div>

@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+<form class="example-form" [formGroup]="addForm">
 <div class="hizala">
   
     <mat-form-field appearance="outline">
@@ -39,9 +39,13 @@
     <mat-error *ngIf="addForm.controls.phone.errors?.['required'] && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
       You can't pass phone number
     </mat-error>
-    <mat-error *ngIf="addForm.controls.phone.errors?.['pattern'] && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
-      Make sure your email address is valid!!
+    <!--
+      <mat-error *ngIf="addForm.controls.phone.errors?.['pattern'] && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
+      Make sure your phone number is valid!!
     </mat-error>
+
+    -->
+    
 
     <mat-form-field appearance="outline">
       <mat-label>Web Site</mat-label>
@@ -73,6 +77,22 @@
       <mat-label>Zip Code</mat-label>
       <input matInput placeholder="Zip code" formControlName="zipcode">
     </mat-form-field>
+
+    <mat-error *ngIf="addForm.controls.address.controls.street.errors?.['required'] && (addForm.controls.address.controls.street.dirty || addForm.controls.address.controls.street.touched)">
+      Please enter Street
+    </mat-error> 
+    
+    <mat-error *ngIf="addForm.controls.address.controls.suite.errors?.['required'] && (addForm.controls.address.controls.suite.dirty || addForm.controls.address.controls.suite.touched)">
+      Please enter Suite
+    </mat-error>   
+
+    <mat-error *ngIf="addForm.controls.address.controls.city.errors?.['required'] && (addForm.controls.address.controls.city.dirty || addForm.controls.address.controls.city.touched)">
+      Please enter City
+    </mat-error>   
+
+    <mat-error *ngIf="addForm.controls.address.controls.zipcode.errors?.['required'] && (addForm.controls.address.controls.zipcode.dirty || addForm.controls.address.controls.zipcode.touched)">
+      Please enter zipcode
+    </mat-error>  
   
 
   <section #Geo formGroupName="geo">
@@ -82,10 +102,18 @@
       <input matInput placeholder="-43.9509" formControlName="lat">
     </mat-form-field>
 
+    
+
     <mat-form-field appearance="outline" class="mx-2">
       <mat-label>Lng</mat-label>
       <input matInput placeholder="-34.4618" formControlName="lng">
     </mat-form-field>
+    <mat-error *ngIf="addForm.controls.address.controls.geo.controls.lng.errors?.['required'] && (addForm.controls.address.controls.geo.controls.lng.dirty || addForm.controls.address.controls.geo.controls.lng.touched)">
+      Please enter lng
+    </mat-error>
+    <mat-error *ngIf="addForm.controls.address.controls.geo.controls.lat.errors?.['required'] && (addForm.controls.address.controls.geo.controls.lat.dirty || addForm.controls.address.controls.geo.controls.lat.touched)">
+      Please enter lng
+    </mat-error>
   </section>
 </section>
   <section #Company formGroupName="company">
@@ -117,7 +145,9 @@
     </mat-error>
     
   </section>
-  <button mat-button color="primary" [disabled]="!addForm.valid">ADD</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!addForm.valid">ADD</button>
+  <button mat-raised-button color="warn" (click)="updateUserInfo()" [disabled]="!addForm.valid" class="my-2">Update</button>
+  <button mat-raised-button color="Accent" (click)="clear()">Clear Form</button>
 </div>
 </form>
-  
+
