@@ -1,0 +1,153 @@
+
+<div *ngFor="let item of allUsers$ |async">
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              {{item.name}}
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="hizala">
+            <mat-form-field appearance="outline">
+                <mat-label>id</mat-label>
+                <input matInput placeholder="Full Name"  value={{item.id}} disabled>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Full Name"  value={{item.name}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username"  value={{item.username}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="email"  value={{item.email}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="phone"  value={{item.phone}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Web site</mat-label>
+                <input matInput placeholder="web site"  value={{item.website}}>
+              </mat-form-field>
+          </div>
+         
+
+          
+    
+      
+        </mat-expansion-panel>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Address
+            </mat-panel-title>
+            <mat-panel-description>
+              Address
+              <mat-icon>public</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <div class="hizala">
+            <mat-form-field appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput placeholder="street"  value={{item.address?.street}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Suite</mat-label>
+                <input matInput placeholder="Suite"  value={{item.address?.suite}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City"  value={{item.address?.city}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Zip Code</mat-label>
+                <input matInput placeholder="Zip Code"  value={{item.address?.zipcode}}>
+              </mat-form-field>
+              <div>
+                <h5 class="d-flex justify-content-center">Geo</h5>
+                <mat-form-field appearance="outline">
+                    <mat-label>lat</mat-label>
+                    <input matInput placeholder="lat"  value={{item.address?.geo?.lat}}>
+                  </mat-form-field>
+    
+                  <mat-form-field appearance="outline" class="m-2">
+                    <mat-label>lng</mat-label>
+                    <input matInput placeholder="lng"  value={{item.address?.geo?.lng}}>
+                  </mat-form-field>
+              </div>
+              
+          </div>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Company Information
+            </mat-panel-title>
+            <mat-panel-description>
+              {{item.company?.name}}
+              <mat-icon>store</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <div class="hizala">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Company Name"  value={{item.company?.name}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>catch Phrase</mat-label>
+                <input matInput placeholder="catch Phrase"  value={{item.company?.catchPhrase}}>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Bs</mat-label>
+                <input matInput placeholder="bs"  value={{item.company?.bs}}>
+              </mat-form-field>
+
+              
+            
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Actions
+            </mat-panel-title>
+            <mat-panel-description>
+              Update/Delete Operation
+              <mat-icon>settings</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <div class="d-flex justify-content-center">
+            <button mat-raised-button color="accent" (click)="openDialog('0ms', '0ms')" >Update
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-raised-button color="warn" class="mx-4">Delete
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br>
+      <br>
+</div>

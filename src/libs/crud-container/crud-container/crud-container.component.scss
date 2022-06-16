@@ -1,0 +1,21 @@
+.grid-container{
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.edit
+{
+    margin-left: 5%;
+}
+
+.list{
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 1024px) {
+    .grid-container{
+        display: block;
+    }
+    
+}

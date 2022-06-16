@@ -1,0 +1,123 @@
+<form class="example-form" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+<div class="hizala">
+  
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Okan, etc" formControlName="name" >
+    </mat-form-field>
+    <mat-error *ngIf="addForm.controls.name.errors?.['required'] && (addForm.controls.name.dirty || addForm.controls.name.touched)">
+      Please enter your Name
+    </mat-error>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="okanyesil, etc" formControlName="username">
+    </mat-form-field>
+    <mat-error *ngIf="addForm.controls.username.errors?.['required'] && (addForm.controls.username.dirty || addForm.controls.username.touched)">
+      Please enter Username
+    </mat-error>
+    <mat-error *ngIf="addForm.controls.username.errors?.['minlength'] && (addForm.controls.username.dirty || addForm.controls.username.touched)">
+      Your username must be atleast 3 caracter
+    </mat-error>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="okan@domain.com" formControlName="email">
+    </mat-form-field>
+    <mat-error *ngIf="addForm.controls.email.errors?.['required'] && (addForm.controls.email.dirty || addForm.controls.email.touched)">
+      You can't pass email
+    </mat-error>
+    <mat-error *ngIf="addForm.controls.email.errors?.['email'] && (addForm.controls.email.dirty || addForm.controls.email.touched)">
+      Make sure your email address is valid!!
+    </mat-error>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="+905442842040" formControlName="phone">
+    </mat-form-field>
+    <mat-error *ngIf="addForm.controls.phone.errors?.['required'] && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
+      You can't pass phone number
+    </mat-error>
+    <mat-error *ngIf="addForm.controls.phone.errors?.['pattern'] && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
+      Make sure your email address is valid!!
+    </mat-error>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Web Site</mat-label>
+      <input matInput placeholder="https://medium.com/@okanyesiloglu" formControlName="website" >
+    </mat-form-field>
+    <mat-error *ngIf="addForm.controls.website.errors?.['pattern'] && (addForm.controls.website.dirty || addForm.controls.website.touched)">
+      Make sure your web site url address is valid!!
+    </mat-error>
+
+  <section #Adress formGroupName="address">
+    <h5 class="d-flex justify-content-center">Address</h5>
+    <mat-form-field appearance="outline">
+      <mat-label>Street</mat-label>
+      <input matInput placeholder="street" formControlName="street">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mx-2">
+      <mat-label>Suite</mat-label>
+      <input matInput placeholder="suite" formControlName="suite">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="mx-2">
+      <mat-label>City</mat-label>
+      <input matInput placeholder="Istanbul, etc" formControlName="city">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mx-2">
+      <mat-label>Zip Code</mat-label>
+      <input matInput placeholder="Zip code" formControlName="zipcode">
+    </mat-form-field>
+  
+
+  <section #Geo formGroupName="geo">
+    <h5 class="d-flex justify-content-center">Geo</h5>
+    <mat-form-field appearance="outline">
+      <mat-label>Lat</mat-label>
+      <input matInput placeholder="-43.9509" formControlName="lat">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mx-2">
+      <mat-label>Lng</mat-label>
+      <input matInput placeholder="-34.4618" formControlName="lng">
+    </mat-form-field>
+  </section>
+</section>
+  <section #Company formGroupName="company">
+    <h5 class="d-flex justify-content-center">Company</h5>
+    <div class="hizala">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Romaguera-Crona, etc" formControlName="name">
+      </mat-form-field>
+      <mat-error *ngIf="addForm.controls.company.controls.name.errors?.['required'] && (addForm.controls.company.controls.name.dirty || addForm.controls.company.controls.name.touched)">
+        Please enter your company
+      </mat-error>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>catch Phrase</mat-label>
+        <input matInput placeholder="Multi-layered client-server neural-net" formControlName="catchPhrase">
+      </mat-form-field>
+      <mat-error *ngIf="addForm.controls.company.controls.catchPhrase.errors?.['required'] && (addForm.controls.company.controls.catchPhrase.dirty || addForm.controls.company.controls.catchPhrase.touched)">
+        Please enter catch Phrase
+      </mat-error>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>bs</mat-label>
+        <input matInput placeholder="harness real-time e-markets" formControlName="bs" >
+      </mat-form-field>
+    </div>
+    <mat-error *ngIf="addForm.controls.company.controls.bs.errors?.['required'] && (addForm.controls.company.controls.bs.dirty || addForm.controls.company.controls.bs.touched)">
+      Please enter catch bs
+    </mat-error>
+    
+  </section>
+  <button mat-button color="primary" [disabled]="!addForm.valid">ADD</button>
+</div>
+</form>
+  
